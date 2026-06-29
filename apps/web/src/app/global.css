@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: #0A0A0A;
+    --foreground: #F5F5F1;
+    --card: #0A0A0A;
+    --card-foreground: #F5F5F1;
+    --popover: #0A0A0A;
+    --popover-foreground: #F5F5F1;
+    --primary: #F5F5F1;
+    --primary-foreground: #0A0A0A;
+    --secondary: #1A1A1A;
+    --secondary-foreground: #F5F5F1;
+    --muted: #1A1A1A;
+    --muted-foreground: #967E5B;
+    --accent: #967E5B;
+    --accent-foreground: #0A0A0A;
+    --destructive: #7F1D1D;
+    --destructive-foreground: #F5F5F1;
+    --border: #262626;
+    --input: #262626;
+    --ring: #967E5B;
+    --radius: 0rem;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+    --radius-xl: 0;
+}
+
+@layer base {
+    * {
+        @apply border-white/10;
+    }
+    body {
+        @apply bg-[#0A0A0A] text-[#F5F5F1] antialiased selection:bg-[#967E5B] selection:text-[#0A0A0A];
+        overflow-x: hidden;
+    }
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 0.04;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom smooth reveal animations */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-reveal {
+    animation: reveal 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
