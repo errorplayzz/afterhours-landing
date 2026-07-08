@@ -3,61 +3,48 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --background: #0A0A0A;
-    --foreground: #F5F5F1;
-    --card: #0A0A0A;
-    --card-foreground: #F5F5F1;
-    --popover: #0A0A0A;
-    --popover-foreground: #F5F5F1;
-    --primary: #F5F5F1;
-    --primary-foreground: #0A0A0A;
-    --secondary: #1A1A1A;
-    --secondary-foreground: #F5F5F1;
-    --muted: #1A1A1A;
-    --muted-foreground: #967E5B;
-    --accent: #967E5B;
-    --accent-foreground: #0A0A0A;
-    --destructive: #7F1D1D;
-    --destructive-foreground: #F5F5F1;
-    --border: #262626;
-    --input: #262626;
-    --ring: #967E5B;
-    --radius: 0rem;
+    --background: #08060A;
+    --foreground: #FAF6F0;
+    --card: #100C14;
+    --card-foreground: #FAF6F0;
+    --primary: #DCA86A;
+    --primary-foreground: #08060A;
+    --secondary: #18121E;
+    --secondary-foreground: #FAF6F0;
+    --muted: #18121E;
+    --muted-foreground: #B5987A;
+    --accent: #E28743;
+    --accent-foreground: #08060A;
+    --border: rgba(220, 168, 106, 0.2);
+    --ring: #DCA86A;
 }
 
 @theme inline {
+    --font-serif: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+    --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --color-card: var(--card);
-    --color-card-foreground: var(--card-foreground);
-    --color-popover: var(--popover);
-    --color-popover-foreground: var(--popover-foreground);
     --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
     --color-accent: var(--accent);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-destructive: var(--destructive);
-    --color-destructive-foreground: var(--destructive-foreground);
-    --color-border: var(--border);
-    --color-input: var(--input);
-    --color-ring: var(--ring);
-    --radius-sm: 0;
-    --radius-md: 0;
-    --radius-lg: 0;
-    --radius-xl: 0;
 }
 
 @layer base {
     * {
-        @apply border-white/10;
+        border-color: rgba(255, 255, 255, 0.08);
     }
     body {
-        @apply bg-[#0A0A0A] text-[#F5F5F1] antialiased selection:bg-[#967E5B] selection:text-[#0A0A0A];
+        background-color: #08060A;
+        background-image: 
+            radial-gradient(circle at 15% 15%, rgba(226, 135, 67, 0.07) 0%, transparent 45%),
+            radial-gradient(circle at 85% 50%, rgba(220, 168, 106, 0.06) 0%, transparent 45%),
+            radial-gradient(circle at 50% 90%, rgba(109, 46, 70, 0.08) 0%, transparent 55%);
+        background-attachment: fixed;
+        color: #FAF6F0;
+        font-family: var(--font-sans), system-ui, sans-serif;
         overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-serif {
+        font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
     }
 }
 
@@ -68,40 +55,114 @@
     width: 100%;
     height: 100%;
     content: "";
-    opacity: 0.04;
+    opacity: 0.038;
     z-index: 9999;
     pointer-events: none;
     background-image: url("https://grainy-gradients.vercel.app/noise.svg");
 }
 
+/* Luminous Ambient Glow Orbs */
+.ambient-glow-cognac {
+    background: radial-gradient(circle, rgba(226, 135, 67, 0.22) 0%, rgba(220, 168, 106, 0.05) 50%, transparent 70%);
+}
+
+.ambient-glow-gold {
+    background: radial-gradient(circle, rgba(220, 168, 106, 0.25) 0%, rgba(181, 152, 122, 0.06) 50%, transparent 70%);
+}
+
+.ambient-glow-velvet {
+    background: radial-gradient(circle, rgba(109, 46, 70, 0.22) 0%, rgba(18, 10, 20, 0.05) 50%, transparent 70%);
+}
+
+/* Luxury Studio Glassmorphism */
+.luxury-card {
+    background: linear-gradient(135deg, rgba(24, 18, 30, 0.72) 0%, rgba(13, 10, 16, 0.88) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(220, 168, 106, 0.18);
+    box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 246, 240, 0.12);
+}
+
+.luxury-card-hover {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card-hover:hover {
+    border-color: rgba(220, 168, 106, 0.48);
+    box-shadow: 0 30px 80px -10px rgba(220, 168, 106, 0.18), inset 0 1px 0 rgba(255, 246, 240, 0.25);
+    transform: translateY(-4px);
+}
+
+/* Gold Sheen & Silk Typography Gradients */
+.gold-gradient-text {
+    background: linear-gradient(135deg, #FFF8ED 0%, #DCA86A 45%, #B5987A 80%, #E28743 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cognac-gradient-text {
+    background: linear-gradient(135deg, #FAF6F0 0%, #E28743 60%, #DCA86A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Luxury Button Specular Glow */
+.btn-luxury {
+    background: linear-gradient(135deg, #DCA86A 0%, #B8854D 100%);
+    color: #08060A;
+    box-shadow: 0 8px 30px rgba(220, 168, 106, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-luxury:hover {
+    background: linear-gradient(135deg, #E8BC84 0%, #C7945A 100%);
+    box-shadow: 0 12px 40px rgba(220, 168, 106, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #08060A;
+}
+::-webkit-scrollbar-thumb {
+    background: #2D2319;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #DCA86A;
+}
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
 
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* Custom smooth reveal animations */
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
 }
 
-.animate-reveal {
-    animation: reveal 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
