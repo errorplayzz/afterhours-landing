@@ -4,6 +4,16 @@
   "workspaces": [
     "apps/*"
   ],
+  "scripts": {
+    "dev": "yarn workspace web dev",
+    "build": "yarn workspace web build",
+    "start": "yarn workspace web start"
+  },
+  "dependencies": {
+    "next": "^16.2.6",
+    "react": "^19.0.4",
+    "react-dom": "^19.0.4"
+  },
   "resolutions": {
     "react": "19.1.0",
     "react-dom": "19.1.0"
