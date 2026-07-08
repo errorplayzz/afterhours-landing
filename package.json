@@ -1,4 +1,6 @@
 {
+  "name": "afterhours-landing",
+  "private": true,
   "workspaces": [
     "apps/*"
   ],
