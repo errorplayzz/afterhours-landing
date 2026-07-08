@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     description: "After the city falls silent. Experience rare extractions and architectural stillness in New Delhi.",
     type: "website",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
